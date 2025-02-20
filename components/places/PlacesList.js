@@ -4,11 +4,15 @@ import PlaceItem from './PlaceItem'
 
 const PlacesList = ({places}) => {  
 
+  const placePressHandler = () => {
+    console.log('Place pressed')
+  }
+
   return (
     <FlatList 
       data={places}
       keyExtractor={item => item.id}
-      renderItem={({item}) => <PlaceItem place={item} />}
+      renderItem={({item}) => <PlaceItem place={item} onSelect={placePressHandler}/>}
     />
   )
 }
