@@ -4,7 +4,7 @@ import React from 'react'
 const PlaceForm = () => {
   return (
     <View>
-      <Text>PlaceForm</Text>
+      <Text style={{fontSize: 24}}>Add Favourite Place</Text>
     </View>
   )
 }

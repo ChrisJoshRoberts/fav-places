@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import PlacesList from '../components/places/PlacesList'
 
-const AllPlaces = () => {
+const AllPlaces = ({navigation}) => {
   return (
-    <PlacesList places={[]} />
+      <PlacesList places={[]} nav={navigation} />
   )
 }
 

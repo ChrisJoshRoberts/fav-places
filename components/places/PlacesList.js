@@ -2,15 +2,21 @@ import { FlatList, StyleSheet, Text, View} from 'react-native'
 import React from 'react'
 import PlaceItem from './PlaceItem'
 import { Earth } from 'lucide-react-native';
+import Button from '../UI/Button';
 
 
-const PlacesList = ({places}) => {  
+const PlacesList = ({places, nav}) => {  
+
+  const addPlaceHandler = () => {
+    nav.navigate('AddPlace')
+  }
 
   if (places.length === 0 || !places) {
     return (
       <View style={styles.fallbackContainer}>
         <Earth size={60} style={styles.fallbackIcon}/>
         <Text style={styles.fallbackText}>No places found. Maybe start adding some!</Text>
+        <Button onPress={addPlaceHandler} mode='primary' >Add Place</Button>
       </View>
     )
   }
