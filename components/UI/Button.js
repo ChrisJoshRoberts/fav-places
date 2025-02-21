@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Colors } from '../../constants/colors'
 
 const Button = ({onPress, children, mode}) => {
   return (
@@ -16,7 +17,7 @@ export default Button
 const styles = StyleSheet.create({
   buttonContainer: {
     marginVertical: 20,
-    backgroundColor: '#146EEE',
+    backgroundColor: Colors.primary700,
     paddingVertical: 10,
     paddingHorizontal: 24,
     borderRadius: 8,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#146EEE',
+    borderColor: Colors.primary700,
     borderWidth: 1
   },
   buttonText: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: 700
   },
   buttonTextSecondary: {
-    color: '#146EEE',
+    color: Colors.primary700,
     fontSize: 16,
     fontWeight: 700
   }

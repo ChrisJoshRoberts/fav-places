@@ -3,6 +3,7 @@ import React from 'react'
 import PlaceItem from './PlaceItem'
 import { Earth } from 'lucide-react-native';
 import Button from '../UI/Button';
+import { Colors } from '../../constants/colors';
 
 
 const PlacesList = ({places, nav}) => {  
@@ -44,10 +45,13 @@ const styles = StyleSheet.create({
   },
   fallbackText: {
     fontSize: 24,
+    fontWeight: 600,
     textAlign: 'center',
     color: 'gray'
   },
   fallbackIcon: {
-    margin: 8
+    margin: 8,
+    color: Colors.primary800,
+    opacity: 0.7
   }
 })
