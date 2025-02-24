@@ -1,12 +1,14 @@
 import { Alert, Image, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../UI/Button'
 import { getCurrentPositionAsync, PermissionStatus, useForegroundPermissions } from 'expo-location'
 import { getMapPreview } from '../../util/location'
+import { useNavigation } from '@react-navigation/native'
 
 const LocationPicker = () => {
   const [pickedLocation, setPickedLocation] = useState()
   const [locationPermissionInformation, requestPermission] = useForegroundPermissions()
+  const navigation = useNavigation()
 
 
   const verifyPermissions = async() => {
@@ -38,9 +40,8 @@ const LocationPicker = () => {
     };
   }
   const pickOnMapHandler = () => {
-
+    navigation.navigate('Map')
   }
-  console.log(pickedLocation, 'after clicked')
   return (
     <View>
         {!pickedLocation &&
@@ -53,7 +54,6 @@ const LocationPicker = () => {
             resizeMode='cover'
             />
         }       
-
       <View style={styles.mapButtonsContainer}>
         <Button onPress={pickOnMapHandler} mode='secondary' icon='map'>Pick on Map</Button>
         <Button onPress={getLocationHanadler} mode='primary'icon='location'>Get location</Button>

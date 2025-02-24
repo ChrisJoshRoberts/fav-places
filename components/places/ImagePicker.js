@@ -41,7 +41,6 @@ const ImagePicker = () => {
   </View>
 
   if (pickedImage) {
-    console.log(pickedImage)
     imagePreview = <Image 
       source={{uri: pickedImage}} 
       style={{width: '100%', height: '100%'}} 
