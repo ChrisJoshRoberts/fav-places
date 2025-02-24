@@ -1,7 +1,8 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { Colors } from '../../constants/colors'
 import ImagePicker from './ImagePicker'
+import LocationPicker from './LocationPicker'
 
 const PlaceForm = () => {
   const [enteredTitle, setEnteredTitle] = useState('')
@@ -13,10 +14,12 @@ const PlaceForm = () => {
   return (
     <ScrollView style={styles.form}>
       <View>
+        <Text style={styles.screenTitle}>Add favourite place:</Text>
         <Text style={styles.label}>Title</Text>
         <TextInput style={styles.input} onChangeText={changeTitleHandler} />
       </View> 
       <ImagePicker />
+      <LocationPicker />
     </ScrollView>
   )
 }
@@ -24,6 +27,12 @@ const PlaceForm = () => {
 export default PlaceForm
 
 const styles = StyleSheet.create({
+  screenTitle: {
+    fontSize: 24,
+    fontWeight: 700,
+    marginVertical: 16,
+    color: Colors.gray700,
+  },
   form: {
     flex: 1,
     padding: 24,
