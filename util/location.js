@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = 'AIzaSyDRa--u5r5-FUsJ2aaa1e5ZSIKKbGEXESc';
+
 
 const getMapPreview = () => {
   const imagePreviewUrl = `https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
