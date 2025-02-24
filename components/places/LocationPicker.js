@@ -1,10 +1,13 @@
-import { Alert, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Alert, Image, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Button from '../UI/Button'
 import { getCurrentPositionAsync, PermissionStatus, useForegroundPermissions } from 'expo-location'
+import { getMapPreview } from '../../util/location'
 
 const LocationPicker = () => {
+  const [pickedLocation, setPickedLocation] = useState()
   const [locationPermissionInformation, requestPermission] = useForegroundPermissions()
+
 
   const verifyPermissions = async() => {
     if (locationPermissionInformation.status === PermissionStatus.UNDETERMINED) {
@@ -23,17 +26,36 @@ const LocationPicker = () => {
     if (!hasPermission) {
       return
     }
-    
+
     const location = await getCurrentPositionAsync()
-    console.log(location)
+    try {
+      setPickedLocation({
+        lat:location.coords.latitude,
+        lng: location.coords.longitude,
+      })
+    } catch (error) {
+      console.error(error.message)
+    };
   }
   const pickOnMapHandler = () => {
 
   }
+  console.log(pickedLocation, 'after clicked')
   return (
     <View>
       <View style={styles.mapPreviewContainer}>
+        {!pickedLocation &&
         <Text style={{opacity: 0.5}}>No location chosen yet!</Text>
+        } 
+        {pickedLocation &&
+        <View>
+          <Image
+            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToNwj_kMM0RpyiQRYnyv6ROzYLCw0dsk9R4A&s'}}
+            style={styles.mapPreviewImage}
+            resizeMode='cover'
+            />
+        </View>
+        }       
       </View>
       <View style={styles.mapButtonsContainer}>
         <Button onPress={pickOnMapHandler} mode='secondary' icon='map'>Pick on Map</Button>
@@ -61,6 +83,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10
+    borderRadius: 10,
+    overflow: 'hidden'
+  }, 
+  mapPreviewImage: {
+    width: '100%',
+    height: 200,
   }
 })
