@@ -43,20 +43,17 @@ const LocationPicker = () => {
   console.log(pickedLocation, 'after clicked')
   return (
     <View>
-      <View style={styles.mapPreviewContainer}>
         {!pickedLocation &&
-        <Text style={{opacity: 0.5}}>No location chosen yet!</Text>
+          <Text style={{opacity: 0.5}}>No location chosen yet!</Text>
         } 
         {pickedLocation &&
-        <View>
           <Image
-            source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToNwj_kMM0RpyiQRYnyv6ROzYLCw0dsk9R4A&s'}}
+            source={{uri: getMapPreview(pickedLocation.lat, pickedLocation.lng)}}
             style={styles.mapPreviewImage}
             resizeMode='cover'
             />
-        </View>
         }       
-      </View>
+
       <View style={styles.mapButtonsContainer}>
         <Button onPress={pickOnMapHandler} mode='secondary' icon='map'>Pick on Map</Button>
         <Button onPress={getLocationHanadler} mode='primary'icon='location'>Get location</Button>
@@ -88,6 +85,9 @@ const styles = StyleSheet.create({
   }, 
   mapPreviewImage: {
     width: '100%',
-    height: 200,
+    height: 100,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 10,
   }
 })
