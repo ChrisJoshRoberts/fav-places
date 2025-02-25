@@ -11,8 +11,7 @@ const AddPlace = ({navigation}) => {
     <SafeAreaView style={styles.formContainer}>
       <PlaceForm />
       <View style={styles.formButtonsContainer}>
-        <Button onPress={cancelFormHandler} mode='secondary' >Cancel</Button>
-        {/* <Button mode='primary'>Add</Button> */}
+        <Button onPress={cancelFormHandler} mode='secondary'>Cancel</Button>
       </View>
     </SafeAreaView>
   )
