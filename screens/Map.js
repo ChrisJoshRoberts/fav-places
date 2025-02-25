@@ -1,7 +1,9 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import MapView, { Marker } from 'react-native-maps'
 import Button from '../components/UI/Button'
+import { Search } from 'lucide-react-native'
+import { Colors } from '../constants/colors'
 
 const Map = ({ navigation }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
@@ -24,8 +26,11 @@ const Map = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View>
-        
+      <View style={styles.searchContainer}>
+        <Search />
+        <TextInput 
+          style={styles.searchInput}
+        />
       </View>
       <MapView
         initialRegion={region}
@@ -62,4 +67,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 12,
   },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 12,
+  },
+  searchInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 40,
+    height: 40,
+    width: '80%',
+    padding: 12,
+    fontSize: 16,
+    color: '#fff',
+  }
 });
