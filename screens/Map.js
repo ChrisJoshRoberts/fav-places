@@ -24,6 +24,9 @@ const Map = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <View>
+        
+      </View>
       <MapView
         initialRegion={region}
         style={styles.map}
