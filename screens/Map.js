@@ -30,6 +30,7 @@ const Map = ({ navigation }) => {
         <Search />
         <TextInput 
           style={styles.searchInput}
+          placeholder='Search'
         />
       </View>
       <MapView
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    paddingVertical: 12,
+    paddingVertical: 16,
   },
   searchInput: {
     borderWidth: 1,
